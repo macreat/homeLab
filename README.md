@@ -1,9 +1,9 @@
-# GCPDS & Personal Lab Home Server Setup
+# GCPDS - Personal Lab Home Server Setup
 
-This manual outlines the workflow for transforming a Desktop PC into a high-performance research hub and personal deployment server. It combines the simplicity of **CasaOS** with professional tools for **Signal Processing (GCPDS)**, **AI Automation**, and **CI/CD**.
+This manual outlines the workflow for transforming a Desktop PC into a high-performance research hub and personal deployment server. It combines the simplicity of **CasaOS** with professional tools for **Signal Processing**, **AI Automation**, and **CI/CD**.
 
 
-The repo is designed as a flexible infrastructure and experimentation platform for future integrations, including custom CI/CD workflows, GitHub Actions extensions, YAML-based automation pipelines, infrastructure orchestration, and scalable research or development environments.
+The repo is designed as a flexible infrastructure and experimentation platform for future integrations, including custom CI/CD workflows, GitHub Actions extensions, YAML-based automation pipelines, infrastructure orchestration, and scalable research or development environments for the GCPDS. 
 
 ---
 
@@ -97,6 +97,10 @@ Turn your server into a worker for your personal repositories:
 ---
 
 ##  Phase 6: Connectivity (Local & Remote)
+
+_POSSIBLY NOT IMPLEMENTED
+Due to constraints within the UNAL private network_
+
 *   **Tailscale:** Access your server, files, and LLM from home or the lab salon without port forwarding.
     ```bash
     curl -fsSL https://tailscale.com/install.sh | sh
