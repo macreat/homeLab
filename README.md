@@ -1,8 +1,23 @@
-# GCPDS - SELF HOSTED  Research Hub & Accelerant Agent 
+# GCPDS Research Hub
 
-![homeLab](content/imgs/server1.jpeg)
 
 Welcome to the **GCPDS Research Hub**, a high-performance development environment and AI-powered research assistant designed for autonomous literature review and automated deployment.
+
+- Follow a self-hosted research infrastructure designed to provide:
+
+    - Secure remote infrastructure management 
+
+    - Automated software deployment and operations (CI/CD)
+
+    - AI-powered research acceleration through autonomous agents
+
+---
+
+
+_CASA OS DASHBOARD_
+
+![casaOS DASHBOARD](content/imgs/server4.png)
+
 
 ---
 
@@ -45,13 +60,52 @@ Access these links when connected to the **University Network** or **Tailscale**
 
 | Service | Local/IP Link | Remote (Tailscale) | Purpose |
 | :--- | :--- | :--- | :--- |
-| **CasaOS Dashboard** | [http://192.168.0.104](http://192.168.0.104) | [http://100.70.18.50](http://100.70.18.50) | **Storage & Management:** Set up files, manage the Data Lake, and monitor server hardware. |
-| **Research Agent UI** | [http://192.168.0.104:3000](http://192.168.0.104:3000) | [http://100.70.18.50:3000](http://100.70.18.50:3000) | **API Research Tool:** Execute academic pipelines, AI synthesis, and document generation. |
+| **CasaOS Dashboard** | [http://192.168.0.136](http://192.168.0.104) | [http://100.70.18.50](http://100.70.18.50) | **Storage & Management:** Set up files, manage the Data Lake, and monitor server hardware. |
+| **Research Agent UI** | [http://192.168.0.136:3000](http://192.168.0.104:3000) | [http://100.70.18.50:3000](http://100.70.18.50:3000) | **API Research Tool:** Execute academic pipelines, AI synthesis, and document generation. |
 
 ###  Which link should I use?
 - **Local/IP Link:** Use this when you are on the same WiFi/Ethernet as the server. It is faster and has zero latency.
 - **Remote (Tailscale):** Use this when you are working from home or when the University network restricts local discovery. It provides a secure, encrypted tunnel to your hub from anywhere in the world.
 - **Pro Tip:** If Avahi is active on your machine, use `http://local.local` to find the server automatically even if the IP changes.
+
+
+### Personalize ssh config : 
+
+copy this into your .ssh/config file: 
+
+
+ 
+```bash
+
+Host server.cow
+    HostName 192.168.0.136
+    User coworker
+    IdentityFile ~/.ssh/id_created; where id_created its a key generated. 
+
+```
+---
+## Infrastructure & Connectivity
+
+The server is designed to operate within complex networking environments (like University campuses) using a hybrid access model.
+
+![net](content/imgs/infrastructure.png)
+
+### 1. The University Network (Local Access)
+The server connects to the University WiFi/Ethernet. 
+- **Local Discovery:** Uses `Avahi-daemon` for `.local` resolution.
+- **Direct SSH:** Access via `ssh server.admin` or `ssh server.coworker` when on the same network.
+- **Resilience:** If the network restricts external VPNs, local SSH remains the primary low-latency connection.
+
+### 2. Hybrid Remote Control (Tailscale & Hotspots)
+For work outside the lab or when University ports are blocked:
+- **Tailscale:** A secure mesh VPN that bypasses NAT and firewalls, allowing you to access the Agent and your files from anywhere in the world.
+- **Temporal Hotspots:** The server supports connection via mobile hotspots as a "Bridge" for initial setup or remote maintenance when primary WiFi is unavailable.
+
+
+### Connectivity 
+
+![net](content/imgs/systemflow.png)
+
 
 ---
 
@@ -67,4 +121,13 @@ Access is currently restricted to two primary user profiles:
 | **Guest/Coworker**| `coworker` | Standard access (cannot update system). |
 
 ---
+
+
+## Phyisical device 
+
+_current physical place_ : located at _National University of Colombia – Manizales Campus (La Nubia), Building S1, GCPDS, Level 1, Image Processing and Machine Vision Laboratory._   
+
+![homeLab](content/imgs/server1.jpeg)
+
 *Maintained by the GCPDS Team. v0.2-1.0 Prototype Stable.*
+
